@@ -1,5 +1,6 @@
 import React from 'react';
 import { IoLogOutOutline } from 'react-icons/io5';
+import { FaPlaneDeparture } from 'react-icons/fa';
 import {
   Box, Heading, Text,
 } from '@chakra-ui/react';
@@ -19,15 +20,20 @@ export default function Navbar() {
       alignItems="center"
       paddingX={35}
       display="flex"
+      shadow="md"
     >
       <Box display="flex" gap={10}>
-        <Heading
-          fontSize={18}
-          color={themes.colors.secondary}
-          fontWeight="bold"
-        >
-          FlightManagement
-        </Heading>
+        <Box display="flex" alignItems="center" gap={2}>
+          <FaPlaneDeparture />
+          <Heading
+            fontSize={20}
+            color={themes.colors.secondary}
+            fontWeight="bold"
+          >
+            FlightManagement
+          </Heading>
+        </Box>
+
         <Box>
           <Clock />
         </Box>
@@ -35,6 +41,12 @@ export default function Navbar() {
 
       <Box d="flex" alignItems="center" gap={10}>
         <Box d="flex" alignItems="center" gap={10}>
+          <Text
+            color={themes.colors.secondary}
+            fontWeight="bold"
+          >
+            PILOTO PRIVADO
+          </Text>
           <Text>
             Denilson Martins
           </Text>
