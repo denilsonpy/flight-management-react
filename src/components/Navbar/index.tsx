@@ -20,7 +20,7 @@ export default function Navbar() {
       alignItems="center"
       paddingX={35}
       display="flex"
-      shadow="md"
+      shadow="xl"
     >
       <Box display="flex" gap={10}>
         <Box display="flex" alignItems="center" gap={2}>
@@ -45,7 +45,7 @@ export default function Navbar() {
             color={themes.colors.secondary}
             fontWeight="bold"
           >
-            PILOTO PRIVADO
+            ALUNO
           </Text>
           <Text>
             Denilson Martins
