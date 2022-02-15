@@ -22,6 +22,9 @@ export default function AsideRoute({ label, icon, ...rest }: Props) {
       alignItems="center"
       padding={30}
       boxShadow="xl"
+      _hover={
+        { width: '100%' }
+      }
       {...rest}
     >
       <Box marginRight={15}>
