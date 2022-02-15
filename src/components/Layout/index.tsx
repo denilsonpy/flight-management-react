@@ -5,6 +5,7 @@ import themes from '../../constants/themes';
 
 import Navbar from '../Navbar';
 import AsideBar from '../AsideBar';
+import DashboardGrid from '../DashboardGrid';
 
 export default function Layout() {
   return (
@@ -20,6 +21,9 @@ export default function Layout() {
       </GridItem>
       <GridItem rowSpan={8}>
         <AsideBar />
+      </GridItem>
+      <GridItem rowSpan={8} colSpan={6}>
+        <DashboardGrid />
       </GridItem>
     </Grid>
   );
