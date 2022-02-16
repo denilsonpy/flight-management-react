@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   Grid, GridItem, Box, Text, LinkBox, LinkOverlay,
 } from '@chakra-ui/react';
@@ -25,6 +25,26 @@ import themes from '../../constants/themes';
 // </Box> */ }
 
 export default function DashboardGrid() {
+  const [weather, setWeather] = useState<any>({} as any);
+
+  async function getWeather(city: string) {
+    const response = await fetch(`https://denilsonpy-projects-api.herokuapp.com/weather/${city}`)
+      .then(
+        (data) => data.json(),
+      );
+
+    setWeather(response);
+  }
+
+  useEffect(() => {
+    getWeather('Rio Claro');
+    const timer = setInterval(() => {
+      getWeather('Rio Claro');
+    }, 10000);
+
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <Grid
       h="100%"
@@ -59,7 +79,7 @@ export default function DashboardGrid() {
                 color={themes.colors.grayDark}
                 fontSize={18}
               >
-                Rasht
+                {!!weather.main && weather.weather[0]?.description}
               </Text>
               <Text
                 as="p"
@@ -67,25 +87,28 @@ export default function DashboardGrid() {
                 fontWeight="bold"
                 fontSize={24}
               >
-                14° C
+                {weather.main?.temp}
+                ° C
               </Text>
               <Box flexDirection="row" display="flex" gap={3} color={themes.colors.grayLight}>
                 <Text
                   as="p"
                   color="blue.300"
                   fontWeight="bold"
-                  fontSize={18}
+                  fontSize={15}
                 >
-                  13° C
+                  {weather.main?.temp_min}
+                  ° C
                 </Text>
                 /
                 <Text
                   as="p"
                   color="orange"
                   fontWeight="bold"
-                  fontSize={18}
+                  fontSize={15}
                 >
-                  14° C
+                  {weather.main?.temp_max}
+                  ° C
                 </Text>
               </Box>
 
@@ -139,7 +162,9 @@ export default function DashboardGrid() {
                 fontWeight="bold"
                 fontSize={24}
               >
-                1.5 km
+                {weather.wind?.speed}
+                {' '}
+                kt
               </Text>
               <Box flexDirection="row" display="flex" gap={3} color={themes.colors.grayLight}>
                 <Text
@@ -148,7 +173,9 @@ export default function DashboardGrid() {
                   fontWeight="bold"
                   fontSize={18}
                 >
-                  350 deg
+                  {weather.wind?.deg}
+                  {' '}
+                  deg
                 </Text>
               </Box>
 
