@@ -13,17 +13,17 @@ type Props = LinkProps & {
 export default function AsideRoute({ label, icon, ...rest }: Props) {
   return (
     <Link
-      w="99%"
+      w="110%"
       h={58}
-      bg={themes.colors.secondaryLow}
+      bg={themes.colors.secondary}
       color={themes.colors.light}
       borderRightRadius={20}
       display="flex"
       alignItems="center"
       padding={30}
-      boxShadow="xl"
+      boxShadow="md"
       _hover={
-        { width: '100%' }
+        { width: '109%' }
       }
       {...rest}
     >
