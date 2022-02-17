@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import {
-  Grid, GridItem, Box, Text, LinkBox, LinkOverlay,
+  Grid, GridItem, Box, Text, LinkBox, LinkOverlay, Skeleton, Stack, SkeletonCircle,
 } from '@chakra-ui/react';
 import { IoIosArrowForward } from 'react-icons/io';
 import { WiDaySunny } from 'react-icons/wi';
@@ -79,15 +79,16 @@ export default function DashboardGrid() {
                 color={themes.colors.grayDark}
                 fontSize={18}
               >
-                {!!weather.main && weather.weather[0]?.description}
+                {weather.main ? weather.weather[0]?.description : <Skeleton height="25px" width="120px" />}
               </Text>
               <Text
                 as="p"
                 color={themes.colors.secondary}
                 fontWeight="bold"
                 fontSize={24}
+                display="flex"
               >
-                {weather.main?.temp}
+                {weather.main?.temp ? weather.main?.temp : <Skeleton marginY={2} marginRight={1} height="20px" width="60px" />}
                 ° C
               </Text>
               <Box flexDirection="row" display="flex" gap={3} color={themes.colors.grayLight}>
@@ -96,8 +97,10 @@ export default function DashboardGrid() {
                   color="blue.300"
                   fontWeight="bold"
                   fontSize={15}
+                  display="flex"
+                  alignItems="center"
                 >
-                  {weather.main?.temp_min}
+                  {weather.main?.temp_min ? weather.main?.temp_min : <Skeleton marginY={2} marginRight={1} height="20px" width="5" />}
                   ° C
                 </Text>
                 /
@@ -106,8 +109,10 @@ export default function DashboardGrid() {
                   color="orange"
                   fontWeight="bold"
                   fontSize={15}
+                  display="flex"
+                  alignItems="center"
                 >
-                  {weather.main?.temp_max}
+                  {weather.main?.temp_max ? weather.main?.temp_min : <Skeleton marginY={2} marginRight={1} height="20px" width="5" />}
                   ° C
                 </Text>
               </Box>
@@ -161,8 +166,10 @@ export default function DashboardGrid() {
                 color={themes.colors.secondary}
                 fontWeight="bold"
                 fontSize={24}
+                display="flex"
+                alignItems="center"
               >
-                {weather.wind?.speed}
+                {weather.wind?.speed ? weather.wind?.speed : <Skeleton marginY={2} marginRight={1} height="20px" width="60px" />}
                 {' '}
                 kt
               </Text>
@@ -172,8 +179,10 @@ export default function DashboardGrid() {
                   color="blue.300"
                   fontWeight="bold"
                   fontSize={18}
+                  display="flex"
+                  alignItems="center"
                 >
-                  {weather.wind?.deg}
+                  {weather.wind?.deg ? weather.wind?.deg : <Skeleton marginY={2} marginRight={1} height="20px" width="10" />}
                   {' '}
                   deg
                 </Text>
@@ -187,7 +196,11 @@ export default function DashboardGrid() {
         </LinkBox>
       </GridItem>
       <GridItem colSpan={3} rowSpan={3} display="flex" alignItems="flex-start" justifyContent="center">
-        <Box width={250} height="90%" boxShadow="xl" bg={themes.colors.light} borderRadius={15} />
+        <Box width={250} height="90%" boxShadow="xl" bg={themes.colors.light} borderRadius={15} padding={5}>
+          <Skeleton height="25%" width="100%" marginBottom={5} />
+          <Skeleton height="25%" width="100%" marginBottom={5} />
+          <Skeleton height="25%" width="100%" marginBottom={5} />
+        </Box>
       </GridItem>
       <GridItem
         colSpan={6}
@@ -198,13 +211,82 @@ export default function DashboardGrid() {
         justifyContent="center"
         gap={8}
       >
-        <Box width="85%" height={75} boxShadow="xl" bg={themes.colors.light} borderRadius={15} />
-        <Box width="85%" height={75} boxShadow="xl" bg={themes.colors.light} borderRadius={15} />
-        <Box width="85%" height={75} boxShadow="xl" bg={themes.colors.light} borderRadius={15} />
-        <Box width="85%" height={75} boxShadow="xl" bg={themes.colors.light} borderRadius={15} />
+        <Box
+          width="85%"
+          height={75}
+          boxShadow="xl"
+          bg={themes.colors.light}
+          borderRadius={15}
+          padding={5}
+          display="flex"
+          alignItems="center"
+          flexDirection="row"
+        >
+          <SkeletonCircle height="50px" width="50px" marginRight={5} />
+          <Stack width="90%">
+            <Skeleton height="20px" width="100%" />
+            <Skeleton height="20px" width="100%" />
+          </Stack>
+        </Box>
+        <Box
+          width="85%"
+          height={75}
+          boxShadow="xl"
+          bg={themes.colors.light}
+          borderRadius={15}
+          padding={5}
+          display="flex"
+          alignItems="center"
+          flexDirection="row"
+        >
+          <SkeletonCircle height="50px" width="50px" marginRight={5} />
+          <Stack width="90%">
+            <Skeleton height="20px" width="100%" />
+            <Skeleton height="20px" width="100%" />
+          </Stack>
+        </Box>
+        <Box
+          width="85%"
+          height={75}
+          boxShadow="xl"
+          bg={themes.colors.light}
+          borderRadius={15}
+          padding={5}
+          display="flex"
+          alignItems="center"
+          flexDirection="row"
+        >
+          <SkeletonCircle height="50px" width="50px" marginRight={5} />
+          <Stack width="90%">
+            <Skeleton height="20px" width="100%" />
+            <Skeleton height="20px" width="100%" />
+          </Stack>
+        </Box>
+        <Box
+          width="85%"
+          height={75}
+          boxShadow="xl"
+          bg={themes.colors.light}
+          borderRadius={15}
+          padding={5}
+          display="flex"
+          alignItems="center"
+          flexDirection="row"
+        >
+          <SkeletonCircle height="50px" width="50px" marginRight={5} />
+          <Stack width="90%">
+            <Skeleton height="20px" width="100%" />
+            <Skeleton height="20px" width="100%" />
+          </Stack>
+        </Box>
       </GridItem>
       <GridItem colSpan={3} rowSpan={5} display="flex" alignItems="flex-start" justifyContent="center">
-        <Box width={250} height="90%" boxShadow="xl" bg={themes.colors.light} borderRadius={15} />
+        <Box width={250} height="90%" boxShadow="xl" bg={themes.colors.light} borderRadius={15} padding={5}>
+          <Skeleton height="20%" width="100%" marginBottom={5} />
+          <Skeleton height="20%" width="100%" marginBottom={5} />
+          <Skeleton height="20%" width="100%" marginBottom={5} />
+          <Skeleton height="20%" width="100%" marginBottom={5} />
+        </Box>
       </GridItem>
     </Grid>
   );
