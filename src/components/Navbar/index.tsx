@@ -24,7 +24,9 @@ export default function Navbar() {
     >
       <Box display="flex" gap={10}>
         <Box display="flex" alignItems="center" gap={2}>
-          <FaPlaneDeparture />
+          <FaPlaneDeparture
+            color={themes.colors.secondary}
+          />
           <Heading
             fontSize={20}
             color={themes.colors.secondary}
