@@ -1,28 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import {
-  Grid, GridItem, Box, Text, LinkBox, LinkOverlay, Skeleton, Stack, SkeletonCircle,
+  Grid, GridItem, Box, Text, LinkBox, LinkOverlay, Skeleton, Stack, SkeletonCircle, Button,
 } from '@chakra-ui/react';
 import { IoIosArrowForward } from 'react-icons/io';
 import { WiDaySunny } from 'react-icons/wi';
 import { GiWindsock } from 'react-icons/gi';
 
 import themes from '../../constants/themes';
-
-// import themes from '../../constants/themes';
-
-// type Props = {
-//   children: ReactNode
-// }
-
-// { /* <Box
-// w={300}
-// h={150}
-// borderRadius={15}
-// backgroundColor={themes.colors.light}
-// boxShadow="xl"
-// >
-// {children}
-// </Box> */ }
 
 export default function DashboardGrid() {
   const [weather, setWeather] = useState<any>({} as any);
@@ -196,10 +180,10 @@ export default function DashboardGrid() {
         </LinkBox>
       </GridItem>
       <GridItem colSpan={3} rowSpan={3} display="flex" alignItems="flex-start" justifyContent="center">
-        <Box width={250} height="90%" boxShadow="xl" bg={themes.colors.light} borderRadius={15} padding={5}>
-          <Skeleton height="25%" width="100%" marginBottom={5} />
-          <Skeleton height="25%" width="100%" marginBottom={5} />
-          <Skeleton height="25%" width="100%" marginBottom={5} />
+        <Box width={250} height="90%" boxShadow="xl" bg={themes.colors.light} borderRadius={15} padding={3}>
+          <Skeleton height="25%" width="100%" borderRadius={8} marginBottom={5} />
+          <Skeleton height="25%" width="100%" borderRadius={8} marginBottom={5} />
+          <Skeleton height="25%" width="100%" borderRadius={8} marginBottom={5} />
         </Box>
       </GridItem>
       <GridItem
@@ -224,8 +208,8 @@ export default function DashboardGrid() {
         >
           <SkeletonCircle height="50px" width="50px" marginRight={5} />
           <Stack width="90%">
-            <Skeleton height="20px" width="100%" />
-            <Skeleton height="20px" width="100%" />
+            <Skeleton height="20px" width="100%" borderRadius={8} />
+            <Skeleton height="20px" width="100%" borderRadius={8} />
           </Stack>
         </Box>
         <Box
@@ -241,8 +225,8 @@ export default function DashboardGrid() {
         >
           <SkeletonCircle height="50px" width="50px" marginRight={5} />
           <Stack width="90%">
-            <Skeleton height="20px" width="100%" />
-            <Skeleton height="20px" width="100%" />
+            <Skeleton height="20px" width="100%" borderRadius={8} />
+            <Skeleton height="20px" width="100%" borderRadius={8} />
           </Stack>
         </Box>
         <Box
@@ -258,34 +242,18 @@ export default function DashboardGrid() {
         >
           <SkeletonCircle height="50px" width="50px" marginRight={5} />
           <Stack width="90%">
-            <Skeleton height="20px" width="100%" />
-            <Skeleton height="20px" width="100%" />
+            <Skeleton height="20px" width="100%" borderRadius={8} />
+            <Skeleton height="20px" width="100%" borderRadius={8} />
           </Stack>
         </Box>
-        <Box
-          width="85%"
-          height={75}
-          boxShadow="xl"
-          bg={themes.colors.light}
-          borderRadius={15}
-          padding={5}
-          display="flex"
-          alignItems="center"
-          flexDirection="row"
-        >
-          <SkeletonCircle height="50px" width="50px" marginRight={5} />
-          <Stack width="90%">
-            <Skeleton height="20px" width="100%" />
-            <Skeleton height="20px" width="100%" />
-          </Stack>
-        </Box>
+        <Button colorScheme="blackAlpha">Ver todos</Button>
       </GridItem>
       <GridItem colSpan={3} rowSpan={5} display="flex" alignItems="flex-start" justifyContent="center">
-        <Box width={250} height="90%" boxShadow="xl" bg={themes.colors.light} borderRadius={15} padding={5}>
-          <Skeleton height="20%" width="100%" marginBottom={5} />
-          <Skeleton height="20%" width="100%" marginBottom={5} />
-          <Skeleton height="20%" width="100%" marginBottom={5} />
-          <Skeleton height="20%" width="100%" marginBottom={5} />
+        <Box width={250} height="90%" boxShadow="xl" bg={themes.colors.light} borderRadius={15} padding={3}>
+          <Skeleton height="20%" width="100%" borderRadius={8} marginBottom={5} />
+          <Skeleton height="20%" width="100%" borderRadius={8} marginBottom={5} />
+          <Skeleton height="20%" width="100%" borderRadius={8} marginBottom={5} />
+          <Skeleton height="20%" width="100%" borderRadius={8} marginBottom={5} />
         </Box>
       </GridItem>
     </Grid>

@@ -49,7 +49,7 @@ export default function Navbar() {
           >
             ALUNO
           </Text>
-          <Text>
+          <Text color={themes.colors.secondary}>
             Denilson Martins
           </Text>
 
